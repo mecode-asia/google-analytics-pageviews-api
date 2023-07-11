@@ -1,12 +1,13 @@
 import { IRunReportResponse } from '../typings';
+import Logger from 'js-logger';
 
 export class GoogleAnalyticsLogger {
   constructor() {}
 
   async logPageviews(report: IRunReportResponse) {
-    console.info('Report result:');
+    Logger.info('Report result:');
     report.rows.forEach((row) => {
-      console.info(row.dimensionValues[0], row.metricValues[0]);
+      Logger.info(row.dimensionValues[0], row.metricValues[0]);
     });
   }
 }
