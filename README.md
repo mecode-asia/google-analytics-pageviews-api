@@ -14,11 +14,11 @@ This project is created to remove needs of creating Google Analytics API for eac
 - Run the following commands according to your project's npm manager
 ```
 // npm
-npm add @mecode-asia/google-analytics-api
+npm add google-analytics-pageviews-api
 // yarn
-yarn add @mecode-asia/google-analytics-api
+yarn add google-analytics-pageviews-api
 // pnpm
-pnpm add @mecode-asia/google-analytics-api
+pnpm add google-analytics-pageviews-api
 ```
 
 ## How to use
