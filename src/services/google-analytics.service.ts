@@ -1,6 +1,7 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
-import { GoogleAnalyticsLogger } from '@src/loggers';
-import { FilterMatchType } from '@src/typings/filters';
+import { GoogleAnalyticsLogger } from '../loggers/google-analytics.logger';
+
+import { FilterMatchType } from '../typings/filters';
 import { PageviewsDto } from '../typings';
 
 export class GoogleAnalyticsService {
