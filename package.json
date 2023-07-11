@@ -1,5 +1,5 @@
 {
-  "name": "@mecode-asia/google-analytics-api",
+  "name": "google-analytics-pageviews-api",
   "version": "0.0.1",
   "description": "Can fetch view count for any path name on your GA property",
   "author": "SPK137",
