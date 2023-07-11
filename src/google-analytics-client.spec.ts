@@ -1,8 +1,8 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
-import { IRunReportResponse } from '../typings';
-import { GoogleAnalyticsService } from './google-analytics.service';
+import { IRunReportResponse } from './typings';
+import { GoogleAnalyticsClient } from './google-analytics-client';
 
-describe('GoogleAnalyticsService', () => {
+describe('GoogleAnalyticsClient', () => {
   beforeAll(() => {
     jest.mock('@google-analytics/data');
   });
@@ -25,9 +25,12 @@ describe('GoogleAnalyticsService', () => {
         } as IRunReportResponse,
       ]);
 
-    const gaService = new GoogleAnalyticsService('123456789');
+    const gaClient = new GoogleAnalyticsClient(
+      '123456789',
+      './credentials.json',
+    );
 
-    const pageviews = await gaService.getPageviews('/articles/hungry-birds');
+    const pageviews = await gaClient.getPageviews('/articles/hungry-birds');
 
     expect(pageviews.pagePath).toBe('/articles/hungry-birds');
     expect(pageviews.viewCount).toBe(18);
