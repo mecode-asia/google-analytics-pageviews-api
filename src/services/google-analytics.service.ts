@@ -12,7 +12,7 @@ export class GoogleAnalyticsService {
     this.analyticsDataClient = new BetaAnalyticsDataClient();
   }
 
-  async getPageviews(pathname: string = ''): Promise<PageviewsDto> {
+  async getPageviewsFromPagePath(pathname: string = ''): Promise<PageviewsDto> {
     const pagePathMatchFilter = {
       filter: {
         fieldName: 'pagePath',

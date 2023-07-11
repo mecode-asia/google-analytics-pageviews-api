@@ -1,2 +1,2 @@
 export * from './typings';
-export * from './services';
+export * from './google-analytics-client';
