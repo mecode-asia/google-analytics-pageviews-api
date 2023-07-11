@@ -10,9 +10,7 @@
     "/dist"
   ],
   "scripts": {
-    "start": "tsc src/test.ts",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -57,5 +55,16 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mecode-asia/google-analytics-pageviews-api.git"
+  },
+  "keywords": [
+    "google-analytics"
+  ],
+  "bugs": {
+    "url": "https://github.com/mecode-asia/google-analytics-pageviews-api.git/issues"
+  },
+  "homepage": "https://github.com/mecode-asia/google-analytics-pageviews-api.git#readme"
 }
