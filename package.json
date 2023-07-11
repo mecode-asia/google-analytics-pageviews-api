@@ -21,8 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@google-analytics/data": "^3.2.2",
-    "js-logger": "^1.6.1"
+    "@google-analytics/data": "^3.2.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",

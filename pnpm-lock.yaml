@@ -8,9 +8,6 @@ dependencies:
   '@google-analytics/data':
     specifier: ^3.2.2
     version: 3.2.2
-  js-logger:
-    specifier: ^1.6.1
-    version: 1.6.1
 
 devDependencies:
   '@types/express':
@@ -2905,10 +2902,6 @@ packages:
       - supports-color
       - ts-node
     dev: true
-
-  /js-logger@1.6.1:
-    resolution: {integrity: sha512-yTgMCPXVjhmg28CuUH8CKjU+cIKL/G+zTu4Fn4lQxs8mRFH/03QTNvEFngcxfg/gRDiQAOoyCKmMTOm9ayOzXA==}
-    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
