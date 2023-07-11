@@ -6,18 +6,13 @@ import { PageviewsDto } from '../typings';
 
 export class GoogleAnalyticsService {
   private gaLogger: GoogleAnalyticsLogger;
-  constructor() {
+  private analyticsDataClient;
+  constructor(private gaPropertyID: string) {
     this.gaLogger = new GoogleAnalyticsLogger();
+    this.analyticsDataClient = new BetaAnalyticsDataClient();
   }
 
   async getPageviews(pathname: string = ''): Promise<PageviewsDto> {
-    const gaPropertyId = process.env.GA_PROPERTY_ID;
-    const analyticsDataClient = new BetaAnalyticsDataClient();
-
-    const property = `properties/${gaPropertyId}`;
-    const dateRanges = [{ startDate: '2020-01-01', endDate: 'today' }];
-    const dimensions = [{ name: 'pagePath' }];
-    const metrics = [{ name: 'screenPageViews' }];
     const pagePathMatchFilter = {
       filter: {
         fieldName: 'pagePath',
@@ -29,16 +24,12 @@ export class GoogleAnalyticsService {
       },
     };
 
-    const [response] = await analyticsDataClient.runReport({
-      property,
-      dateRanges,
-      dimensions,
-      metrics,
-      dimensionFilter: {
-        orGroup: {
-          expressions: [pagePathMatchFilter],
-        },
-      },
+    const [response] = await this.analyticsDataClient.runReport({
+      property: `properties/${this.gaPropertyID}`,
+      dateRanges: [{ startDate: '2020-01-01', endDate: 'today' }],
+      dimensions: [{ name: 'pagePath' }],
+      metrics: [{ name: 'screenPageViews' }],
+      dimensionFilter: pagePathMatchFilter,
     });
 
     this.gaLogger.logPageviews(response);
