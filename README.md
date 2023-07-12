@@ -22,6 +22,22 @@ pnpm add google-analytics-pageviews-api
 ```
 
 ## How to use
+- Input GA Property ID and Google Service Account File Path as params when instantiating the GoogleAnalyticsClient. (It is advised to set both parameters as ENV variables)
+- Access the class method to use the client
+```
+import { GoogleAnalyticsClient, PageviewsDto } from 'google-analytics-pageviews-api'
+
+const gaPropertyID = '123456789'
+const gaCredentialsPath = '/path/to/file'
+
+const gaClient = new GoogleAnalyticsClient(gaPropertyID, gaCredentialsPath)
+
+export async function getPageViews(articleSlug) {
+  const pageViewsCount: PageviewsDto = await gaClient.getPageviews(`/articles/${articleSlug}`)
+  return pageViewsCount?.viewCount || 0
+}
+// returned value: {pagePath: provided page path, viewCount: number of page views}
+```
 
 ## License
 Copyright (c) 2023 MeCode
