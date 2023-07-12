@@ -5,15 +5,26 @@ export class GoogleAnalyticsLogger {
   constructor() {}
 
   async logEnvError(envError: EnvError) {
-    if (envError === EnvError.MISSING_PROPERTY_ID) {
-      Logger.warn(
-        'Google Analytics Property ID is missing! Please input the ID when instantiating the GoogleAnalyticsClient.',
-      );
-    }
-    if (envError === EnvError.MISSING_CREDENTIALS_PATH) {
-      Logger.warn(
-        'Path to service account credentials file is missing! Please input the path when instantiating the GoogleAnalyticsClient.',
-      );
+    switch (envError) {
+      case EnvError.MISSING_PROPERTY_ID:
+        Logger.warn(
+          'Google Analytics Property ID is missing! Please input the ID when instantiating the GoogleAnalyticsClient.',
+        );
+        break;
+      case EnvError.MISSING_CREDENTIALS_PATH:
+        Logger.warn(
+          'Path to service account credentials file is missing! Please input the path when instantiating the GoogleAnalyticsClient.',
+        );
+        break;
+      case EnvError.INCORRECT_CREDENTIALS_PATH:
+        Logger.warn(
+          'Path to service account credentials file is incorrect! Please input the correct path when instantiating the GoogleAnalyticsClient.',
+        );
+        break;
+      default:
+        Logger.warn(
+          'There is an error due to misconfiguration of GA Pageviews API.',
+        );
     }
   }
 
