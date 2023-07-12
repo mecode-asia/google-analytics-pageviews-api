@@ -1,6 +1,6 @@
 import { GoogleAnalyticsLogger } from '../loggers/google-analytics.logger';
 import path from 'path';
-import { EnvError, GoogleAnalyticsConfig } from 'src/typings';
+import { EnvError, GoogleAnalyticsConfig } from '../typings';
 import { existsSync } from 'fs';
 
 export class ConfigService {
