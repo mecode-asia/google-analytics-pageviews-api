@@ -1,7 +1,6 @@
 import path from 'path';
 import { GoogleAnalyticsLogger } from './loggers';
-import { GoogleAnalyticsService } from './services';
-import { ConfigService } from './services/config.service';
+import { GoogleAnalyticsService, ConfigService } from './services';
 
 export class GoogleAnalyticsClient {
   private configService: ConfigService;
