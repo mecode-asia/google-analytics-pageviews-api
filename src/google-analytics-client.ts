@@ -1,6 +1,10 @@
-import path from 'path';
+import { Cache, CacheContainer } from 'node-ts-cache';
+import { MemoryStorage } from 'node-ts-cache-storage-memory';
+
 import { GoogleAnalyticsLogger } from './loggers';
 import { GoogleAnalyticsService, ConfigService } from './services';
+
+const pageviewsCache = new CacheContainer(new MemoryStorage());
 
 export class GoogleAnalyticsClient {
   private configService: ConfigService;
@@ -19,6 +23,8 @@ export class GoogleAnalyticsClient {
     );
   }
 
+  //Cache lives for 6 hours
+  @Cache(pageviewsCache, { ttl: 21600000 })
   async getPageviews(pathname: string) {
     return await this.gaService.getPageviewsFromPagePath(pathname);
   }
