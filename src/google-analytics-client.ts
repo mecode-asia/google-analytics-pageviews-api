@@ -1,15 +1,22 @@
 import path from 'path';
+import { GoogleAnalyticsLogger } from './loggers';
 import { GoogleAnalyticsService } from './services';
+import { ConfigService } from './services/config.service';
 
 export class GoogleAnalyticsClient {
+  private configService: ConfigService;
   private gaService: GoogleAnalyticsService;
-  constructor(
-    private gaPropertyID: string = '',
-    private credentialsPath: string = '',
-  ) {
-    this.gaService = new GoogleAnalyticsService(this.gaPropertyID);
-    process.env['GOOGLE_APPLICATION_CREDENTIALS'] = path.resolve(
-      this.credentialsPath,
+  private gaLogger: GoogleAnalyticsLogger;
+  constructor(gaPropertyID: string = '', credentialsPath: string = '') {
+    this.gaLogger = new GoogleAnalyticsLogger();
+
+    this.configService = new ConfigService(
+      { gaPropertyID, credentialsPath },
+      this.gaLogger,
+    );
+    this.gaService = new GoogleAnalyticsService(
+      this.configService,
+      this.gaLogger,
     );
   }
 
