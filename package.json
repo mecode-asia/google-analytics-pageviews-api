@@ -1,6 +1,6 @@
 {
-  "name": "google-analytics-pageviews-api",
-  "version": "0.0.2",
+  "name": "@mecode-asia/google-analytics-pageviews-api",
+  "version": "0.0.3",
   "description": "Can fetch view count for any path name on your GA property",
   "author": "SPK137",
   "license": "MIT",
@@ -16,6 +16,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@google-analytics/data": "^3.2.2",
